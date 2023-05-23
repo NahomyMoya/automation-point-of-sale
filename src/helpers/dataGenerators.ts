@@ -10,7 +10,7 @@ export function generateCheckoutInfo(): ICheckout {
     city: faker.location.city(),
     zipCode: faker.location.zipCode(),
     phoneNumber: faker.phone.number(),
-    country: 'Costa Rica', //hardcoded country to avoid the selector on the state
+    country: 'United States',
     state: faker.location.state(),
   };
 }

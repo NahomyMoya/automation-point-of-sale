@@ -1,4 +1,3 @@
-import { faker } from '@faker-js/faker';
 import { sendKeys } from '../helpers/actions';
 class ProductPage {
   get quantityInput() {
@@ -7,10 +6,10 @@ class ProductPage {
   get addToCartBtn() {
     return $('#product-addtocart-button');
   }
-  get sizeOptions() {
+  get sizeOption() {
     return $('.swatch-option.text');
   }
-  get colorOptions() {
+  get colorOption() {
     return $('.swatch-option.color');
   }
   get successAlert() {
@@ -24,16 +23,10 @@ class ProductPage {
   }
 
   public async selectSizeRandomly(): Promise<void> {
-    // const elementsLength = await this.sizeOptions.length;
-    // const randomElement = faker.number.int({ min: 0, max: elementsLength });
-    // await this.sizeOptions[randomElement].click();
-    await this.sizeOptions.click();
+    await this.sizeOption.click();
   }
   public async selectColorRandomly(): Promise<void> {
-    // const elementsLength = await this.colorOptions.length;
-    // const randomElement = faker.number.int({ min: 0, max: elementsLength });
-    // await this.colorOptions[randomElement].click();
-    await this.colorOptions.click();
+    await this.colorOption.click();
   }
   public async fillTheProductQuantity(quantity: number) {
     await sendKeys(this.quantityInput, quantity.toString());

@@ -21,10 +21,8 @@ When('I add {int} product items to the cart', async function (productQuantity) {
 When('I fill the checkout info on the first step', async function () {
   const newCheckoutInfo = generateCheckoutInfo();
   await CheckoutPage.fillCheckoutInputs(newCheckoutInfo);
-  await browser.pause(5000);
+  //await browser.pause(5000);
   await CheckoutPage.goToTheNextStep();
-  await browser.pause(5000);
-  // I have some trouble here without those 2 pauses, it does not wait for the loading that happens to check on the then for the step 2
 });
 
 When('I place my order', async function () {

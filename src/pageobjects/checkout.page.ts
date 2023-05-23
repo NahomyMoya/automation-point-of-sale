@@ -24,7 +24,7 @@ class CheckoutPage {
     return $('[name=country_id]');
   }
   get stateInput() {
-    return $('[name=region]');
+    return $('[name=region_id]');
   }
   get zipcodeInput() {
     return $('[name=postcode]');
@@ -50,8 +50,16 @@ class CheckoutPage {
   get orderNumberTxt() {
     return $('.checkout-success p');
   }
-
+  get shippingForm() {
+    return $('#checkout-step-shipping');
+  }
+  get shippingMethodsForm() {
+    return $('#checkout-shipping-method-load');
+  }
   public async fillCheckoutInputs(checkoutInfo: ICheckout) {
+    await this.selectCountry(checkoutInfo.country);
+    await this.selectState(checkoutInfo.state);
+    //await sendKeys(this.stateInput, checkoutInfo.state);
     await sendKeys(this.lastNameInput, checkoutInfo.lastName);
     await sendKeys(this.emailInput, checkoutInfo.emailAddress);
     await sendKeys(this.firstNameInput, checkoutInfo.firstName);
@@ -60,13 +68,15 @@ class CheckoutPage {
     await sendKeys(this.zipcodeInput, checkoutInfo.zipCode);
     await sendKeys(this.phoneNumberInput, checkoutInfo.phoneNumber);
     await sendKeys(this.companyInput, checkoutInfo.company);
-    await this.selectCountry(checkoutInfo.country);
-    await sendKeys(this.stateInput, checkoutInfo.state);
-    //await this.selectShippingMethod();
+    (await this.shippingMethodsForm).scrollIntoView();
+    await this.selectShippingMethod();
   }
 
   public async selectCountry(country: string) {
     await this.countryInput.selectByVisibleText(country);
+  }
+  public async selectState(state: string) {
+    await this.stateInput.selectByVisibleText(state);
   }
   public async goToTheNextStep() {
     await this.nextBtn.scrollIntoView();
@@ -77,6 +87,7 @@ class CheckoutPage {
   }
 
   public async placeOrder() {
+    (await this.placeOrderBtn).waitForEnabled();
     await this.placeOrderBtn.click();
   }
 }

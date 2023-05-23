@@ -14,7 +14,7 @@ Feature: Shopping
     When I fill the checkout info on the first step
     Then The order sumary must be displayed
 
-# Scenario: Perform Checkout Second Step
-#   When I place my order
-#   Then The order number must be visible
-#   And A purchase success message must be shown
+  Scenario: Perform Checkout Second Step
+    When I place my order
+    Then The order number must be visible
+    And A purchase success message must be shown

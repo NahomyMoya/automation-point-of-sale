@@ -8,6 +8,7 @@ Then('A product addition success message must be shown', async function () {
 });
 
 Then('The order sumary must be displayed', async function () {
+  await CheckoutPage.stepTitle.waitForDisplayed();
   expect(await CheckoutPage.stepTitle.isDisplayed()).toBe(true);
 });
 
