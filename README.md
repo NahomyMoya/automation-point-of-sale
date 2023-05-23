@@ -1,6 +1,6 @@
 # Automation-point-of-sale
 
-Solution for the exercise on the technical interview for the Automation QA position.
+Solution for the shopping flow, including the checkout process
 
 # Technology Stack
 

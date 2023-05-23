@@ -1,24 +1,25 @@
 import { sendKeys } from '../helpers/actions';
+import { ChainablePromiseElement } from 'webdriverio';
 class ProductPage {
-  get quantityInput() {
+  get quantityInput(): ChainablePromiseElement<WebdriverIO.Element> {
     return $('#qty');
   }
-  get addToCartBtn() {
+  get addToCartBtn(): ChainablePromiseElement<WebdriverIO.Element> {
     return $('#product-addtocart-button');
   }
-  get sizeOption() {
+  get sizeOption(): ChainablePromiseElement<WebdriverIO.Element> {
     return $('.swatch-option.text');
   }
-  get colorOption() {
+  get colorOption(): ChainablePromiseElement<WebdriverIO.Element> {
     return $('.swatch-option.color');
   }
-  get successAlert() {
+  get successAlert(): ChainablePromiseElement<WebdriverIO.Element> {
     return $('[role=alert]');
   }
-  get successAlertText() {
+  get successAlertText(): ChainablePromiseElement<WebdriverIO.Element> {
     return $('[role=alert] div div');
   }
-  get cartQuantityTxt() {
+  get cartQuantityTxt(): ChainablePromiseElement<WebdriverIO.Element> {
     return $('.showcart .qty');
   }
 
@@ -28,10 +29,10 @@ class ProductPage {
   public async selectColorRandomly(): Promise<void> {
     await this.colorOption.click();
   }
-  public async fillTheProductQuantity(quantity: number) {
+  public async fillTheProductQuantity(quantity: number): Promise<void> {
     await sendKeys(this.quantityInput, quantity.toString());
   }
-  public async addProductsToCart() {
+  public async addProductsToCart(): Promise<void> {
     await this.addToCartBtn.click();
   }
 }

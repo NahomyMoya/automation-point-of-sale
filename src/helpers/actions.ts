@@ -3,7 +3,7 @@ import { ChainablePromiseElement } from 'webdriverio';
 export async function sendKeys(
   element: ChainablePromiseElement<WebdriverIO.Element>,
   text: string,
-) {
+): Promise<void> {
   await element.waitForDisplayed();
   await element.clearValue();
   await element.addValue(text);

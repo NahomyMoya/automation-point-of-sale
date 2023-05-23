@@ -1,27 +1,28 @@
+import { ChainablePromiseElement } from 'webdriverio';
 class HomePage {
-  get womenCategory() {
+  get womenCategoryTabOption(): ChainablePromiseElement<WebdriverIO.Element> {
     return $('#ui-id-4');
   }
-  get firstProductCard() {
+  get firstProductCard(): ChainablePromiseElement<WebdriverIO.Element> {
     return $('.product-item');
   }
-  get cartBtn() {
+  get cartBtn(): ChainablePromiseElement<WebdriverIO.Element> {
     return $('.showcart');
   }
-  get checkoutBtn() {
+  get checkoutBtn(): ChainablePromiseElement<WebdriverIO.Element> {
     return $('#top-cart-btn-checkout');
   }
   public async selectProductCategory() {
-    await this.womenCategory.click();
+    await this.womenCategoryTabOption.click();
   }
 
-  public async goToCheckout() {
+  public async goToCheckout(): Promise<void> {
     await this.cartBtn.waitForDisplayed();
     await this.cartBtn.click();
     await this.checkoutBtn.waitForDisplayed();
     await this.checkoutBtn.click();
   }
-  public async selectFirstProductOnPage() {
+  public async selectFirstProductOnPage(): Promise<void> {
     await this.firstProductCard.click();
   }
 }
