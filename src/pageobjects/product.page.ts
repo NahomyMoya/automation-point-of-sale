@@ -13,6 +13,16 @@ class ProductPage {
   get colorOptions() {
     return $('.swatch-option.color');
   }
+  get successAlert() {
+    return $('[role=alert]');
+  }
+  get successAlertText() {
+    return $('[role=alert] div div');
+  }
+  get cartQuantityTxt() {
+    return $('.showcart .qty');
+  }
+
   public async selectSizeRandomly(): Promise<void> {
     // const elementsLength = await this.sizeOptions.length;
     // const randomElement = faker.number.int({ min: 0, max: elementsLength });
@@ -25,8 +35,8 @@ class ProductPage {
     // await this.colorOptions[randomElement].click();
     await this.colorOptions.click();
   }
-  public async fillTheProductQuantity(quantity: string) {
-    await sendKeys(this.quantityInput, quantity);
+  public async fillTheProductQuantity(quantity: number) {
+    await sendKeys(this.quantityInput, quantity.toString());
   }
   public async addProductsToCart() {
     await this.addToCartBtn.click();

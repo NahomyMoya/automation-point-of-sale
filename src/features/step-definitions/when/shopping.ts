@@ -13,11 +13,9 @@ When('I select size and color', async function () {
   await ProductPage.selectColorRandomly();
 });
 
-When('I add product items to the cart', async function () {
-  const productQuantity = faker.number.int({ min: 1, max: 10 }).toString();
+When('I add {int} product items to the cart', async function (productQuantity) {
   await ProductPage.fillTheProductQuantity(productQuantity);
   await ProductPage.addProductsToCart();
-  await browser.pause(3000); //sin este asunto no se espera a que los elementos se agreguen al cart
 });
 
 When('I fill the checkout info on the first step', async function () {
@@ -26,7 +24,7 @@ When('I fill the checkout info on the first step', async function () {
   await browser.pause(5000);
   await CheckoutPage.goToTheNextStep();
   await browser.pause(5000);
-  // estoy teniendo un problema aqui porque no me está pasando a la siguiente pagina\
+  // I have some trouble here without those 2 pauses, it does not wait for the loading that happens to check on the then for the step 2
 });
 
 When('I place my order', async function () {

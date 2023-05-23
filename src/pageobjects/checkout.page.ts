@@ -41,10 +41,19 @@ class CheckoutPage {
   get placeOrderBtn() {
     return $('button.checkout');
   }
+  get stepTitle() {
+    return $('.payment-group .step-title');
+  }
+  get successTitle() {
+    return $('h1');
+  }
+  get orderNumberTxt() {
+    return $('.checkout-success p');
+  }
 
   public async fillCheckoutInputs(checkoutInfo: ICheckout) {
-    await sendKeys(this.emailInput, checkoutInfo.emailAddress);
     await sendKeys(this.lastNameInput, checkoutInfo.lastName);
+    await sendKeys(this.emailInput, checkoutInfo.emailAddress);
     await sendKeys(this.firstNameInput, checkoutInfo.firstName);
     await sendKeys(this.streetAddressInput, checkoutInfo.streetAddress);
     await sendKeys(this.cityInput, checkoutInfo.city);

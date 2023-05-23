@@ -16,7 +16,9 @@ class HomePage {
   }
 
   public async goToCheckout() {
+    await this.cartBtn.waitForDisplayed();
     await this.cartBtn.click();
+    await this.checkoutBtn.waitForDisplayed();
     await this.checkoutBtn.click();
   }
   public async selectFirstProductOnPage() {

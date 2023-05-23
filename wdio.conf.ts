@@ -1,4 +1,4 @@
-import type { Options } from "@wdio/types";
+import type { Options } from '@wdio/types';
 
 export const config: Options.Testrunner = {
   //
@@ -6,11 +6,11 @@ export const config: Options.Testrunner = {
   // Runner Configuration
   // ====================
   // WebdriverIO supports running e2e tests as well as unit and component tests.
-  runner: "local",
+  runner: 'local',
   autoCompileOpts: {
     autoCompile: true,
     tsNodeOpts: {
-      project: "./tsconfig.json",
+      project: './tsconfig.json',
       transpileOnly: true,
     },
   },
@@ -31,7 +31,7 @@ export const config: Options.Testrunner = {
   // then the current working directory is where your `package.json` resides, so `wdio`
   // will be called from there.
   //
-  specs: ["./src/features/**/*.feature"],
+  specs: ['./src/features/**/*.feature'],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -61,7 +61,7 @@ export const config: Options.Testrunner = {
   capabilities: [
     {
       // capabilities for local browser web tests
-      browserName: "chrome", // or "firefox", "microsoftedge", "safari"
+      browserName: 'chrome', // or "firefox", "microsoftedge", "safari"
     },
   ],
   //
@@ -71,7 +71,7 @@ export const config: Options.Testrunner = {
   // Define all options that are relevant for the WebdriverIO instance here
   //
   // Level of logging verbosity: trace | debug | info | warn | error | silent
-  logLevel: "info",
+  logLevel: 'info',
   //
   // Set specific log levels per logger
   // loggers:
@@ -98,7 +98,7 @@ export const config: Options.Testrunner = {
   baseUrl: process.env.BASE_URL,
   //
   // Default timeout for all waitFor* commands.
-  waitforTimeout: 10000,
+  waitforTimeout: 20000,
   //
   // Default timeout in milliseconds for request
   // if browser driver or grid doesn't send response
@@ -111,7 +111,7 @@ export const config: Options.Testrunner = {
   // Services take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
-  services: ["chromedriver"],
+  services: ['chromedriver'],
 
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
@@ -119,7 +119,7 @@ export const config: Options.Testrunner = {
   //
   // Make sure you have the wdio adapter package for the specific framework installed
   // before running any tests.
-  framework: "cucumber",
+  framework: 'cucumber',
   //
   // The number of times to retry the entire specfile when it fails as a whole
   // specFileRetries: 1,
@@ -133,13 +133,13 @@ export const config: Options.Testrunner = {
   // Test reporter for stdout.
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter
-  reporters: ["spec"],
+  reporters: ['spec'],
 
   //
   // If you are using Cucumber you need to specify the location of your step definitions.
   cucumberOpts: {
     // <string[]> (file/dir) require files before executing features
-    require: ["./src/features/step-definitions/**/*.ts"],
+    require: ['./src/features/step-definitions/**/*.ts'],
     // <boolean> show full backtrace for errors
     backtrace: false,
     // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
@@ -155,7 +155,7 @@ export const config: Options.Testrunner = {
     // <boolean> fail if there are any undefined or pending steps
     strict: false,
     // <string> (expression) only execute the features or scenarios with tags matching the expression
-    tagExpression: "",
+    tagExpression: '',
     // <number> timeout for step definitions
     timeout: 60000,
     // <boolean> Enable this config to treat undefined definitions as warnings.
